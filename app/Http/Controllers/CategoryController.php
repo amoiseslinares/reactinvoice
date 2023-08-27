@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use Inertia\Inertia;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use App\Http\Requests\StoreCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -33,6 +36,15 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         //
+        // Validator::make($request->all(), [
+        //     'name' => ['required', 'max:255'],
+        //     'status' => ['required', 'in:active,inactive'],
+        //     'description' => ['required', 'max:255'],
+        // ])->validate();
+
+        Category::create($request->validated());
+
+        return redirect()->route('categories.index');
     }
 
     /**
