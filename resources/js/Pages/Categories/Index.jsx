@@ -185,12 +185,16 @@ export default function Index({ auth, categories }) {
                                     <span className="block py-2 px-3 text-xs font-medium uppercase text-gray-400 dark:text-gray-600">
                                       Actions
                                     </span>
-                                    <a
+                                    <Link
                                       className="flex items-center gap-x-3 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                                      href="#"
+                                      href={route(
+                                        "categories.show",
+                                        category.id
+                                      )}
                                     >
                                       Ver Categoria
-                                    </a>
+                                    </Link>
+
                                     <Link
                                       className="flex items-center gap-x-3 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                                       href={route(
@@ -202,12 +206,16 @@ export default function Index({ auth, categories }) {
                                     </Link>
                                   </div>
                                   <div className="py-2 first:pt-0 last:pb-0">
-                                    <a
+                                    <Link
                                       className="flex items-center gap-x-3 py-2 px-3 rounded-md text-sm text-red-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-red-500 dark:hover:bg-gray-700 dark:hover:text-gray-300"
-                                      href="#"
+                                      href={route(
+                                        "categories.destroy",
+                                        category.id
+                                      )}
+                                      method="delete"
                                     >
                                       Eliminar Categoria
-                                    </a>
+                                    </Link>
                                   </div>
                                 </div>
                               </div>
