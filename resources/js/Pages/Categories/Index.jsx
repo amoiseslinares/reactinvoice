@@ -147,18 +147,72 @@ export default function Index({ auth, categories }) {
                                 >
                                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                                 </svg>
-                                {category.state}
+                                {category.status}
                               </span>
                             </a>
                           </td>
                           <td className="h-px whitespace-nowrap">
                             <a className="block h-full p-6" href="#">
                               <span className="text-sm text-gray-600 dark:text-gray-400">
-                                10 Jan 2022
+                                {category.created_at}
                               </span>
                             </a>
                           </td>
-                          <td className="h-px whitespace-nowrap"></td>
+                          <td className="h-px whitespace-nowrap">
+                            <div className="px-6 py-2">
+                              <div className="hs-dropdown relative inline-block [--placement:bottom-right]">
+                                <button
+                                  id="hs-table-dropdown-1"
+                                  type="button"
+                                  className="hs-dropdown-toggle py-1.5 px-2 inline-flex justify-center items-center gap-2 rounded-md text-gray-700 align-middle focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+                                >
+                                  <svg
+                                    className="w-4 h-4"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="currentColor"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                  </svg>
+                                </button>
+                                <div
+                                  className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden mt-2 divide-y divide-gray-200 min-w-[10rem] z-20 bg-white shadow-2xl rounded-lg p-2 mt-2 dark:divide-gray-700 dark:bg-gray-800 dark:border dark:border-gray-700"
+                                  aria-labelledby="hs-table-dropdown-1"
+                                >
+                                  <div className="py-2 first:pt-0 last:pb-0">
+                                    <span className="block py-2 px-3 text-xs font-medium uppercase text-gray-400 dark:text-gray-600">
+                                      Actions
+                                    </span>
+                                    <a
+                                      className="flex items-center gap-x-3 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                                      href="#"
+                                    >
+                                      Ver Categoria
+                                    </a>
+                                    <Link
+                                      className="flex items-center gap-x-3 py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                                      href={route(
+                                        "categories.edit",
+                                        category.id
+                                      )}
+                                    >
+                                      Editar Categoria
+                                    </Link>
+                                  </div>
+                                  <div className="py-2 first:pt-0 last:pb-0">
+                                    <a
+                                      className="flex items-center gap-x-3 py-2 px-3 rounded-md text-sm text-red-600 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-red-500 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                                      href="#"
+                                    >
+                                      Eliminar Categoria
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
                         </tr>
                       ))}
                     </tbody>
